@@ -10,9 +10,9 @@ name: Cloudformation template
  
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
  
 jobs:
   build:
@@ -45,7 +45,8 @@ jobs:
     - name: Upload artifact zip to S3 bucket
       run: aws s3 cp ./target/my-new-case-study-1.0-SNAPSHOT-lambda-package.zip s3://aws-weather-app-bucket/
     - name: Upload cloudformation template to S3 bucket
-      run: aws s3 cp ./template.yml s3://aws-weather-app-bucket/
+      run: aws s3 cp ./Deployment.yaml s3://aws-weather-app-bucket/
+     
       
  
   deploy:
@@ -69,5 +70,5 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: new-aws-weather-app-stack
-        template:  https://aws-weather-app-bucket.s3.amazonaws.com/template.yml
+        template:  https://aws-weather-app-bucket.s3.amazonaws.com/Deployment.yaml
         no-fail-on-empty-changeset: "1"
