@@ -43,9 +43,9 @@ jobs:
         aws-region: us-east-1
  
     - name: Upload artifact zip to S3 bucket
-      run: aws s3 cp ./target/my-new-case-study-1.0-SNAPSHOT-lambda-package.zip s3://aws-weather-app-bucket/
+      run: aws s3 cp aws-weather-app-bucket.s3.amazonaws.com/my-new-case-study-1.0-SNAPSHOT-lambda-package.zip
     - name: Upload cloudformation template to S3 bucket
-      run: https://aws-weather-app-bucket.s3.amazonaws.com/template.yaml
+      run: s3://aws-weather-app-bucket/template.yaml
       
  
   deploy:
