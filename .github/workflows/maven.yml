@@ -45,7 +45,7 @@ jobs:
     - name: Upload artifact zip to S3 bucket
       run: aws s3 cp ./target/my-new-case-study-1.0-SNAPSHOT-lambda-package.zip s3://aws-weather-app-bucket/
     - name: Upload cloudformation template to S3 bucket
-      run: aws s3 cp ./template.yaml s3://aws-weather-app-bucket/
+      run: aws s3 cp C:\Users\10746772\Downloads\my-new-case-study\template.ymls3://aws-weather-app-bucket/
  
   deploy:
     runs-on: ubuntu-latest
