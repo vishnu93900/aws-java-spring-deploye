@@ -75,6 +75,10 @@ Resources:
           Tags: []
           TimeToLiveSpecification:
             Enabled: false
+  weatherRestAPI:
+            Type: AWS::ApiGateway::RestApi
+            Properties:
+              Name: weatherdataAPI
         
      
          
