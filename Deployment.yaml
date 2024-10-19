@@ -114,6 +114,7 @@ Resources:
             Action: lambda:InvokeFunction
             Principal: 
                 - apigateway.amazonaws.com
+                - dynamodb.amazonaws.com
             SourceAccount: 266226424630
    
 
