@@ -45,7 +45,7 @@ jobs:
     - name: Upload artifact zip to S3 bucket
       run: aws s3 cp ./target/my-new-case-study-1.0-SNAPSHOT-lambda-package.zip s3://aws-weather-app-bucket/
     - name: Upload cloudformation template to S3 bucket
-      run: aws s3 cp ./Deployment.yml s3://aws-weather-app-bucket/
+      run: aws s3 cp ./Deployment.yaml s3://aws-weather-app-bucket/
  
   deploy:
     runs-on: ubuntu-latest
@@ -68,5 +68,5 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: new-aws-weather-app-stack
-        template: https://aws-weather-app-bucket.s3.amazonaws.com/Deployment.yml
+        template: https://aws-weather-app-bucket.s3.amazonaws.com/Deployment.yaml
         no-fail-on-empty-changeset: "1"
