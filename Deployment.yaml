@@ -89,6 +89,7 @@ Resources:
           - weatherRestAPI
           - RootResourceId
         PathPart: '{proxy+}'
+        
     ProxyResourceANY:
         Type: 'AWS::ApiGateway::Method'
         Properties:
@@ -107,15 +108,13 @@ Resources:
           Description: My deployment
           StageName: mystage
           
-    LambdaInvokPermissions:
-          Type: 'AWS::Lambda::Permission'
-          Properties:
-            FunctionName: !Ref LambdaFunctionSpringFunction
-            Action: lambda:InvokeFunction
-            Principal: 
-                - apigateway.amazonaws.com
-                - dynamodb.amazonaws.com
-            SourceAccount: 266226424630
+    permission:
+        Type: AWS::Lambda::Permission
+        Properties:
+              FunctionName: !Ref LambdaFunctionSpringFunction
+              Action: lambda:InvokeFunction
+              Principal: 266226424630
+                
    
 
    
