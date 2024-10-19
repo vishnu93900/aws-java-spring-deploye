@@ -108,7 +108,7 @@ Resources:
           StageName: mystage
           
     LambdaInvokPermissions:
-          Type: AWS::Lambda::Permission
+          Type: 'AWS::Lambda::Permission'
           Properties:
             FunctionName: !Ref LambdaFunctionSpringFunction
             Action: lambda:InvokeFunction
