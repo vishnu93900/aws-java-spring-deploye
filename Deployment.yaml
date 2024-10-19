@@ -90,19 +90,8 @@ Resources:
           - RootResourceId
         PathPart: '{proxy+}'
 
-    ProxyResourceANY:
-    Type: 'AWS::ApiGateway::Method'
-    Properties:
-      RestApiId: !Ref weatherRestAPI
-      ResourceId: !Ref ProxyResource
-      HttpMethod: ANY
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub 'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${LambdaFunctionSpringFunction.Arn}/invocations'
-  
-
+   
+   
  
   
 
