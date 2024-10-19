@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: this is WeatherApp using s3 , Lambda and APIgateway
 Resources: 
-    LambdaExecutionRole:
+    LambdaExecutionRole: 
       Type: AWS::IAM::Role
       Properties:
         AssumeRolePolicyDocument:
