@@ -36,8 +36,8 @@ LambdaFunctionSpringFunction:
         UpdateRuntimeOn: "Auto"
       Handler: "org.example.StreamLambdaHandler::handleRequest"
       Code:
-        S3Bucket: myweatherdatavishnu
-        S3Key: Case-Study-Weather-App-1.0-SNAPSHOT-lambda-package.zip
+        S3Bucket: aws-weather-app-bucket
+        S3Key: my-new-case-study-1.0-SNAPSHOT-lambda-package.zip
       Role: !GetAtt LambdaExecutionRole.Arn
       FileSystemConfigs: []
       FunctionName: "SpringFunction"
