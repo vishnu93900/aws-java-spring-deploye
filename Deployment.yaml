@@ -100,13 +100,12 @@ Resources:
             Type: AWS_PROXY
             IntegrationHttpMethod: POST
             Uri: !Sub 'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${LambdaFunctionSpringFunction.Arn}/invocations'
-
      Deployment:
-        Type: 'AWS::ApiGateway::Deployment'
-        Properties:
-          RestApiId: !Ref weatherRestAPI
-          Description: My deployment
-          StageName: mystage
+            Type: 'AWS::ApiGateway::Deployment'
+            Properties:
+              RestApiId: !Ref weatherRestAPI
+              Description: My deployment
+              StageName: mystage
 
    
  
