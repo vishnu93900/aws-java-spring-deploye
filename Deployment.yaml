@@ -1,6 +1,6 @@
-  AWSTemplateFormatVersion: "2010-09-09"
-  Description: this is WeatherApp using s3 , Lambda and APIgateway
-  Resources:
+AWSTemplateFormatVersion: "2010-09-09"
+Description: this is WeatherApp using s3 , Lambda and APIgateway
+Resources:
     LambdaExecutionRole:
       Type: AWS::IAM::Role
       Properties:
@@ -12,7 +12,7 @@
                 Service:
                   - lambda.amazonaws.com
                   - s3.amazonaws.com
-                  - DynamoDB.amazonaws.com
+                  - dynamodb.amazonaws.com
               Action:
                 - 'sts:AssumeRole'
         Description: IAM role for lambda to access s3 and dynamodb
