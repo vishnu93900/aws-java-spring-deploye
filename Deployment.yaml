@@ -106,6 +106,15 @@ Resources:
           RestApiId: !Ref weatherRestAPI
           Description: My deployment
           StageName: mystage
+          
+    LambdaInvokPermissions:
+          Type: AWS::Lambda::Permission
+          Properties:
+            FunctionName: !Ref LambdaFunctionSpringFunction
+            Action: lambda:InvokeFunction
+            Principal: 
+                - apigateway.amazonaws.com
+            SourceAccount: 266226424630
    
 
    
