@@ -52,4 +52,71 @@ Resources:
           Size: 512
         Architectures:
           - "x86_64"
+
+    DynamoDBTableWeatherData:
+      UpdateReplacePolicy: "Retain"
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: "Retain"
+      Properties:
+        SSESpecification:
+          SSEEnabled: false
+        TableName: "WeatherData"
+        AttributeDefinitions:
+        - AttributeType: "S"
+          AttributeName: "id"
+        ContributorInsightsSpecification:
+          Enabled: false
+        BillingMode: "PAY_PER_REQUEST"
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: false
+        KeySchema:
+        - KeyType: "HASH"
+          AttributeName: "id"
+        DeletionProtectionEnabled: false
+        TableClass: "STANDARD"
+        Tags: []
+        TimeToLiveSpecification:
+          Enabled: false
+          
+    weatherRestAPI:
+       Type: AWS::ApiGateway::RestApi
+       Properties:
+          Name: weatherdataAPI
+    ProxyResource:
+      Type: 'AWS::ApiGateway::Resource'
+      Properties:
+        RestApiId: !Ref weatherRestAPI
+        ParentId: !GetAtt 
+          - weatherRestAPI
+          - RootResourceId
+        PathPart: '{proxy+}'
+        
+    ProxyResourceANY:
+        Type: 'AWS::ApiGateway::Method'
+        Properties:
+          RestApiId: !Ref weatherRestAPI
+          ResourceId: !Ref ProxyResource
+          HttpMethod: ANY
+          AuthorizationType: NONE
+          Integration:
+            Type: AWS_PROXY
+            IntegrationHttpMethod: POST
+            Uri: !Sub 'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${LambdaFunctionSpringFunction.Arn}/invocations'
+    Deployment:
+        Type: 'AWS::ApiGateway::Deployment'
+        Properties:
+          RestApiId: !Ref weatherRestAPI
+          Description: My deployment
+          StageName: mystage
+          
+    
+  
+
+
+
+
+
+
+    
+
    
