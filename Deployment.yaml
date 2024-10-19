@@ -116,7 +116,7 @@ Resources:
                 - apigateway.amazonaws.com
             SourceAccount: 266226424630
             
-   SpringEventRule:
+    SpringEventRule:
             Type: AWS::Events::Rule
             DeletionPolicy: "Retain"
             Properties:
@@ -127,7 +127,7 @@ Resources:
               State: "ENABLED"
               Name: "SpringLambdaEvent"   
            
-  SpringEventRuleToSpringFunctionConnector:
+     SpringEventRuleToSpringFunctionConnector:
         Type: AWS::Lambda::Permission
         Properties:
           FunctionName: !GetAtt LambdaFunctionSpringFunction.Arn
