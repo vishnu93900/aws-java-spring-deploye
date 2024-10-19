@@ -80,7 +80,7 @@
     weatherRestAPI:
        Type: AWS::ApiGateway::RestApi
        Properties:
-       Name: weatherdataAPI
+          Name: weatherdataAPI
 
  
   
