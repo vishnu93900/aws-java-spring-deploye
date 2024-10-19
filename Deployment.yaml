@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: this is WeatherApp using s3 , Lambda and APIgateway
 Resources: 
   LambdaExecutionRole: 
-      Type: 'AWS::IAM::Role'
+      Type: AWS::IAM::Role
       Properties:
         AssumeRolePolicyDocument:
           Version: "2012-10-17"
@@ -21,14 +21,14 @@ Resources:
           - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
           - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
         RoleName: LambdaExecutionRole1
-LambdaFunctionSpringFunction:
+  LambdaFunctionSpringFunction:
     UpdateReplacePolicy: "Retain"
     DependsOn: LambdaExecutionRole
     Type: "AWS::Lambda::Function"
     DeletionPolicy: "Retain"
     Properties:
       MemorySize: 512
-      Description: ""
+      Description: "creating lambda function"
       TracingConfig:
         Mode: "PassThrough"
       Timeout: 15
