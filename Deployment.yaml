@@ -79,6 +79,14 @@ Resources:
             Type: AWS::ApiGateway::RestApi
             Properties:
               Name: weatherdataAPI
+  ProxyResource:
+        Type: 'AWS::ApiGateway::Resource'
+        Properties:
+          RestApiId: !Ref weatherRestAPI
+          ParentId: !GetAtt 
+            - weatherRestAPI
+            - RootResourceId
+          PathPart: '{proxy+}'
         
      
          
