@@ -123,7 +123,7 @@ Resources:
             - Id: !Ref LambdaFunctionSpringFunction
               Arn: !GetAtt LambdaFunctionSpringFunction.Arn
           State: "ENABLED"
-          Name: "SpringLambdaEvent"   
+          Name: "SpringLambdaEvent01"   
        
     SpringEventRuleToSpringFunctionConnector:
         Type: AWS::Lambda::Permission
