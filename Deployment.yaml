@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: this is WeatherApp using s3 , Lambda and APIgateway
 Resources: 
     LambdaExecutionRole: 
-      Type: AWS::IAM::Role
+      Type: 'AWS::IAM::Role'
       Properties:
         AssumeRolePolicyDocument:
           Version: "2012-10-17"
@@ -20,7 +20,7 @@ Resources:
           - arn:aws:iam::aws:policy/AmazonS3FullAccess
           - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
           - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-        RoleName: LambdaExecutionRole
+        RoleName: LambdaExecutionRole1
 
     LambdaFunctionSpringFunction:
       UpdateReplacePolicy: "Retain"
@@ -78,18 +78,11 @@ Resources:
         TimeToLiveSpecification:
           Enabled: false
           
-    weatherRestAPI:
+     weatherRestAPI:
        Type: AWS::ApiGateway::RestApi
        Properties:
           Name: weatherdataAPI
-    ProxyResource:
-      Type: 'AWS::ApiGateway::Resource'
-      Properties:
-        RestApiId: !Ref weatherRestAPI
-        ParentId: !GetAtt 
-          - weatherRestAPI
-          - RootResourceId
-        PathPart: '{proxy+}'
+    
         
     
     
