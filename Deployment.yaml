@@ -103,7 +103,7 @@ Resources:
         Properties:
           RestApiId: !Ref weatherRestAPI
           Description: My deployment
-          StageName: mystage
+          StageName: mydemo
       
      
     
