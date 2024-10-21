@@ -21,7 +21,36 @@ Resources:
           - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
           - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
         RoleName: LambdaExecutionRole1
-  
+ LambdaFunctionSpringFunction:
+    UpdateReplacePolicy: "Retain"
+    DependsOn: LambdaExecutionRole
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 512
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 15
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "org.example.StreamLambdaHandler::handleRequest"
+      Code:
+        S3Bucket: myweatherdatavishnu
+        S3Key: Case-Study-Weather-App-1.0-SNAPSHOT-lambda-package.zip
+      Role: !GetAtt LambdaExecutionRole.Arn
+      FileSystemConfigs: []
+      FunctionName: "SpringFunction"
+      Runtime: "java21"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/SpringFunction"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
             
          
              
