@@ -111,7 +111,9 @@ Resources:
         Properties:
           FunctionName: !Ref LambdaFunctionSpringFunction
           Action: lambda:InvokeFunction
-          Principal: 266226424630
+          Principal: 
+                - apigateway.amazonaws.com
+          SourceAccount: 266226424630
             
   
                 
