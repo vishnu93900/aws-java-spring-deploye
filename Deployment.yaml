@@ -33,7 +33,7 @@ Resources:
         Timeout: 15
         RuntimeManagementConfig:
           UpdateRuntimeOn: "Auto"
-        Handler: "org.ltimindtree.StreamLambdaHandler::handleRequest"
+        Handler: "org.example.StreamLambdaHandler::handleRequest"
         Code:
           S3Bucket: aws-weather-app-bucket
           S3Key: my-new-case-study-1.0-SNAPSHOT-lambda-package.zip
