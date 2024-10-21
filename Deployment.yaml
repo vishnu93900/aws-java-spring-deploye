@@ -107,7 +107,7 @@ Resources:
             StageName: mycity
             
   permission:
-        Type: AWS::Lambda::Permission
+        Type: "AWS::Lambda::Permission"
         Properties:
           FunctionName: !Ref LambdaFunctionSpringFunction
           Action: lambda:InvokeFunction
