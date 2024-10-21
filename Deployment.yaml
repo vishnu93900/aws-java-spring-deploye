@@ -63,7 +63,7 @@ Resources:
         TableName: "WeatherData"
         AttributeDefinitions:
         - AttributeType: "S"
-          AttributeName: "cityName"
+          AttributeName: "id"
         ContributorInsightsSpecification:
           Enabled: false
         BillingMode: "PAY_PER_REQUEST"
@@ -71,7 +71,7 @@ Resources:
           PointInTimeRecoveryEnabled: false
         KeySchema:
         - KeyType: "HASH"
-          AttributeName: "cityName"
+          AttributeName: "id"
         DeletionProtectionEnabled: false
         TableClass: "STANDARD"
         Tags: []
